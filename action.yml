@@ -3,6 +3,9 @@ description: "Checkout NEML2 repository, setup Python, CMake, and system depende
 inputs:
   os:
     required: true
+  path:
+    required: false
+    default: ""
   python-version:
     required: true
   cmake-version:
@@ -13,6 +16,8 @@ runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v4
+      with:
+        path: ${{ inputs.path }}
     - uses: actions/setup-python@v5
       with:
         python-version: ${{ inputs.python-version }}
