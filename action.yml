@@ -27,19 +27,15 @@ runs:
     - name: Install system dependencies (Ubuntu)
       if: ${{ startsWith(inputs.os, 'ubuntu') }}
       shell: bash
-      run: sudo apt install graphviz lcov
+      run: |
+        sudo apt install graphviz lcov
+        pip install torch==${{ inputs.torch-version }} --index-url https://download.pytorch.org/whl/cpu
     - name: Install system dependencies (MacOS)
       shell: bash
       if: ${{ startsWith(inputs.os, 'macos') }}
-      run: brew install graphviz lcov
+      run: |
+        brew install graphviz lcov
+        pip install torch==${{ inputs.torch-version }}
     - name: Install Python dependencies
       shell: bash
       run: cd ${{ inputs.path}} && pip install -r requirements.txt
-    - name: Install PyTorch CPU-only (Ubuntu)
-      shell: bash
-      if: ${{ startsWith(inputs.os, 'ubuntu') }}
-      run: pip install torch==${{ inputs.torch-version }} --index-url https://download.pytorch.org/whl/cpu
-    - name: Install PyTorch CPU-only (MacOS)
-      shell: bash
-      if: ${{ startsWith(inputs.os, 'macos') }}
-      run: pip install torch==${{ inputs.torch-version }}
