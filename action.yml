@@ -5,7 +5,7 @@ inputs:
     required: true
   path:
     required: false
-    default: ""
+    default: "."
   python-version:
     required: true
   cmake-version:
@@ -40,4 +40,4 @@ runs:
         pip install torch==${{ inputs.torch-version }}
     - name: Install Python dependencies
       shell: bash
-      run: cd ${{ inputs.path}} && pip install -r requirements.txt
+      run: cd ${{ inputs.path }} && pip install -r requirements.txt
