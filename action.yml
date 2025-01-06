@@ -30,14 +30,14 @@ runs:
       if: runner.os == 'Linux'
       shell: bash
       run: |
-        sudo apt install graphviz lcov
+        sudo apt install graphviz lcov mpich
         pip install ninja
         pip install torch==${{ inputs.torch-version }} --index-url https://download.pytorch.org/whl/cpu
     - name: Install system dependencies (MacOS)
       shell: bash
       if: runner.os == 'macOS'
       run: |
-        brew install graphviz lcov
+        brew install graphviz lcov mpich
         pip install ninja
         pip install torch==${{ inputs.torch-version }}
     - name: Install Python dependencies
