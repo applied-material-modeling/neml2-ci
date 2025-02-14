@@ -37,6 +37,7 @@ runs:
       shell: bash
       if: runner.os == 'macOS'
       run: |
+        brew install autoconf automake libtool
         brew install graphviz lcov mpich
         pip install ninja
         pip install torch==${{ inputs.torch-version }}
