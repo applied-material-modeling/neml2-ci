@@ -18,6 +18,7 @@ runs:
   steps:
     - uses: actions/checkout@v4
       with:
+        repository: 'applied-material-modeling/neml2'
         path: ${{ inputs.path }}
         ref: ${{ inputs.ref }}
     - uses: actions/setup-python@v5
