@@ -52,7 +52,7 @@ runs:
       run: |
         pip install torch==${{ inputs.torch-version }}
     - name: Install Doxygen (Linux)
-      if: runner.os == 'Linux'
+      if: runner.os == 'Linux' && inputs.doxygen-version != ''
       shell: bash
       run: |
         DOXYGEN_VERSION="${{ inputs.doxygen-version }}"
