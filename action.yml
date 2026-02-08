@@ -59,4 +59,4 @@ runs:
         DOXYGEN_RELEASE="${DOXYGEN_VERSION//./_}"
         wget https://github.com/doxygen/doxygen/releases/download/Release_${DOXYGEN_RELEASE}/doxygen-${DOXYGEN_VERSION}.linux.bin.tar.gz
         tar -xzf doxygen-${DOXYGEN_VERSION}.linux.bin.tar.gz
-        mv doxygen-${DOXYGEN_VERSION} doxygen
+        sudo ln -s doxygen-${DOXYGEN_VERSION}/bin/doxygen /usr/local/bin/doxygen
